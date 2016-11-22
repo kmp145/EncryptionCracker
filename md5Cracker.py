@@ -47,8 +47,8 @@ def crack(target):
 
 #Define input/output
 h = hashlib.md5()
-hashList = 'hashes.txt' #input('Enter name of hashlist:\t')
-outputList = 'output.txt' #input('Enter name of the output file:\t')
+hashList = input('Enter name of hashlist:\t')
+outputList = input('Enter name of the output file:\t')
 try:
     file = open(hashList, 'r')
     hashRead = file.read()
