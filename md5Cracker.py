@@ -11,7 +11,7 @@ def crack(target):
             hashTest += hashTester[i]
         hashTest.strip()
 
-
+        #print(hashTest)#FOR DEBUGGING
         
         #Check if correct
         h = hashlib.md5()
@@ -27,14 +27,18 @@ def crack(target):
             hashTester.append(sampleSpace[0])
             continue
 
+            
         #Check if hashTest[0] = max
-        elif hashTester[0] == sampleSpace[len(sampleSpace)-1]:
+        elif hashTester[0] == sampleSpace[len(sampleSpace)-1]:#make elif
             hashTester[0] = sampleSpace[0]
-            for i in range (0, len(hashTest)):
+            for i in range (1, len(hashTest)):
                 if hashTester[i] == sampleSpace[len(sampleSpace)-1]:
+                    hashTester[i] = sampleSpace[0]
+                    #hashTester[i+1] = sampleSpace[sampleSpace.find(hashTester[i])+1]
                     continue
                 else:
                     hashTester[i] = sampleSpace[sampleSpace.find(hashTester[i])+1]
+                    break
 
         else:
             hashTester[0] = sampleSpace[sampleSpace.find(hashTester[0])+1]
